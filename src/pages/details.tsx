@@ -1,9 +1,8 @@
-import { Flex, Text, Img, Box } from "@chakra-ui/react";
+import { Flex, Text, Img, Box, Button } from "@chakra-ui/react";
+import router from "next/router";
 import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import api from "../services";
-
-
 
 interface IHeroesProps {
   id: number;
@@ -14,7 +13,6 @@ interface IHeroesProps {
     extension: string
   }
 }
-
 interface ISeriesProps {
   id: number;
   title: string;
@@ -51,6 +49,11 @@ export default function Details() {
     <Flex bg='#312e38' h={series.length === 0 ? '100vh' : '100%'} w='100%' flexDir='column'>
       <Header />
       <Flex w='100%' justify='center' flexDir='column' align='center'>
+      <Flex maxW='960px'w='100%' align='center' justifyContent='space-around' >
+      <Button onClick={()=>router.back()} fontFamily='Comfortaa' mt='5' bg='#FF9000' color='#312E38' _hover={{ backgroundColor: '#ec8600 ' }} >voltar para home</Button>
+      <Button onClick={()=>router.push('/editHeroi')} fontFamily='Comfortaa' mt='5' bg='#FF9000' color='#312E38' _hover={{ backgroundColor: '#ec8600 ' }} >Editar Herói</Button>
+
+      </Flex>
         <Text textAlign='center' mt='8' fontFamily='Comfortaa' color='#F4EDE8' fontSize='24px' fontWeight='bold' >Detalhes do(a) {heroes.name}</Text>
 
         <Flex maxW='960px' mt='10' bg='#3e3b47' borderRadius='8' >

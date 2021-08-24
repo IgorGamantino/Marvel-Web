@@ -45,6 +45,8 @@ export function CardHeroes() {
   }, [])
 
 
+  console.log(heroes)
+
 
   if (heroes.length === 0) {
     return (
